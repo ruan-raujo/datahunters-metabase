@@ -6,6 +6,7 @@ RUN mkdir -p /app/data /plugins && chmod -R 777 /app/data /plugins /tmp
 
 COPY datahunters_dw.sqlite /app/data/datahunters_dw.sqlite
 COPY metabase.db.mv.db /app/data/metabase.db.mv.db
+COPY start-metabase.sh /app/start-metabase.sh
 
 RUN chmod -R 777 /app/data
 
@@ -20,4 +21,4 @@ EXPOSE 7860
 
 USER 1000
 
-ENTRYPOINT ["java", "-XX:+IgnoreUnrecognizedVMOptions", "--add-opens=java.base/java.nio=ALL-UNNAMED", "-jar", "/app/metabase.jar"]
+ENTRYPOINT ["/bin/sh", "/app/start-metabase.sh"]
