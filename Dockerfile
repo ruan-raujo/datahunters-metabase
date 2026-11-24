@@ -15,7 +15,7 @@ ENV MB_DB_TYPE=h2 \
     MB_JETTY_PORT=7860 \
     MB_JETTY_HOST=0.0.0.0 \
     MB_PLUGINS_DIR=/plugins \
-    JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=60.0"
+    JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=40.0 -XX:+UseSerialGC -XX:+ExitOnOutOfMemoryError"
 
 EXPOSE 7860
 
