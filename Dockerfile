@@ -14,10 +14,10 @@ ENV MB_DB_TYPE=h2 \
     MB_JETTY_PORT=7860 \
     MB_JETTY_HOST=0.0.0.0 \
     MB_PLUGINS_DIR=/plugins \
-    JAVA_OPTS="-Xmx1536m"
+    JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=60.0"
 
 EXPOSE 7860
 
 USER 1000
 
-ENTRYPOINT ["java", "-Xmx1536m", "-XX:+IgnoreUnrecognizedVMOptions", "--add-opens=java.base/java.nio=ALL-UNNAMED", "-jar", "/app/metabase.jar"]
+ENTRYPOINT ["java", "-XX:+IgnoreUnrecognizedVMOptions", "--add-opens=java.base/java.nio=ALL-UNNAMED", "-jar", "/app/metabase.jar"]
